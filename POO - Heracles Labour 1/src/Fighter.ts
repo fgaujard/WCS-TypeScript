@@ -6,7 +6,7 @@ function randomInt(max: number): number {
 
 export class Fighter {
   public name: string;
-  public strength: number;
+  private strength: number;
   private dexterity: number;
   public life: number = MAX_LIFE;
 
@@ -16,12 +16,13 @@ export class Fighter {
     this.dexterity = dexterity;
   }
 
-  fight(Fighter: { strength: number }): number {
-    const damages: number =
-      randomInt(Fighter.strength) - this.dexterity > 0
-        ? Fighter.strength - this.dexterity
-        : 1;
-    return this.life - damages >= 0 ? (this.life = this.life - damages) : 0;
+  fight(defender: Fighter): number {
+    let damages: number = randomInt(this.strength) - defender.dexterity;
+    damages = damages > 0 ? damages : 1;
+
+    return defender.life - damages >= 0
+      ? (defender.life = defender.life - damages)
+      : 0;
   }
 
   isAlive(): boolean {

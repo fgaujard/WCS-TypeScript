@@ -1,6 +1,11 @@
 import { Fighter } from "./src/Fighter";
+import { Weapon } from "./src/Weapon";
+import { Shield } from "./src/Shield";
 
-const Heracles: Fighter = new Fighter("🧔 Heracles", 20, 6);
+const Sword: Weapon = new Weapon("Épée 🗡️");
+const newShield: Shield = new Shield("Bouclier 🛡️");
+
+const Heracles: Fighter = new Fighter("🧔 Heracles", 20, 6, Sword, newShield);
 const Lion: Fighter = new Fighter("🦁 Nemean Lion", 11, 13);
 
 let round: number = 1;
