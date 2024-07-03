@@ -17,11 +17,11 @@ export class Fighter {
   }
 
   fight(Fighter: { strength: number }): number {
-    const dammages: number =
+    const damages: number =
       randomInt(Fighter.strength) - this.dexterity > 0
         ? Fighter.strength - this.dexterity
         : 1;
-    return this.life - dammages >= 0 ? (this.life = this.life - dammages) : 0;
+    return this.life - damages >= 0 ? (this.life = this.life - damages) : 0;
   }
 
   isAlive(): boolean {
